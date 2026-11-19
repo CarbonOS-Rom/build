@@ -1314,7 +1314,7 @@ function setup_ccache() {
 
 setup_ccache
 
-function carbon() {
+function crystal() {
     local device="$1"
     local build_type="$2"
     source ${ANDROID_BUILD_TOP}/vendor/lineage/vars/aosp_target_release
@@ -1324,7 +1324,7 @@ function carbon() {
             device=$(echo "$TARGET_PRODUCT" | sed -E 's/lineage_([^_]+).*/\1/')
             echo "No argument found for device, using TARGET_PRODUCT as device: $device"
         else
-            echo "Correct usage: carbon <device_codename> [build_type]"
+            echo "Correct usage: crystal <device_codename> [build_type]"
             echo "Available build types: user, userdebug, eng"
             return 1
         fi
@@ -1351,17 +1351,17 @@ function ascend() {
         return 1
     fi
 
-    echo "ascend is deprecated. Please use carbon instead."
+    echo "ascend is deprecated. Please use crystal instead."
     echo "Usage: carbon [b|fb]"
     echo "   b   - Build bacon"
     echo "   fb  - Fastboot update"
 
     case "$1" in
         "fastboot")
-            carbon fb
+            crystal fb
             ;;
         *)
-            carbon b
+            crystal b
             ;;
     esac
 }
@@ -1377,7 +1377,7 @@ function carbon() {
     fi
 
     if [[ -z "$TARGET_PRODUCT" ]]; then
-        echo "Error: No device target set. Please use 'carbon' or 'lunch' to set the target device."
+        echo "Error: No device target set. Please use 'crystal' or 'lunch' to set the target device."
         return 1
     fi
 
@@ -1396,7 +1396,7 @@ function carbon() {
                 ;;
             *)
                 echo "Error: Invalid argument mode. Please use 'b', 'fb', 'sb', 'help', or a job count flag like '-j<number>'."
-                echo "Usage: carbon [b|fb|sb] [-j<num_cores>]"
+                echo "Usage: crystal [b|fb|sb] [-j<num_cores>]"
                 return 1
                 ;;
         esac

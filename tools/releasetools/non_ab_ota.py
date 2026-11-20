@@ -215,21 +215,20 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: {}".format(target_info.fingerprint))
 
   # Build info
-  
-script.Print("------------------------------------------------------------");
-script.Print("  ██████  █████  ██████  ██████   ██████  ███    ██ ");
-script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ████   ██ ");
-script.Print(" ██      ███████ ██████  ██████  ██    ██ ██ ██  ██ ");
-script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ██  ██ ██ ");
-script.Print("  ██████ ██   ██ ██   ██ ██████   ██████  ██   ████ ");
-script.Print("");
-script.Print("                 ██████  ███████");
-script.Print("                ██    ██ ██     ");
-script.Print("                ██    ██ ███████");
-script.Print("                ██    ██      ██");
-script.Print("                 ██████  ███████");
-script.Print("------------------------------------------------------------");
-  
+script.Print("------------------------------------------------------------")
+script.Print("  ██████  █████  ██████  ██████   ██████  ███    ██ ")
+script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ████   ██ ")
+script.Print(" ██      ███████ ██████  ██████  ██    ██ ██ ██  ██ ")
+script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ██  ██ ██ ")
+script.Print("  ██████ ██   ██ ██   ██ ██████   ██████  ██   ████ ")
+script.Print("")
+script.Print("                 ██████  ███████")
+script.Print("                ██    ██ ██     ")
+script.Print("                ██    ██ ███████")
+script.Print("                ██    ██      ██")
+script.Print("                 ██████  ███████")
+script.Print("------------------------------------------------------------")
+
   buildid = target_info.GetBuildProp("ro.carbon.version_display")
   androidver = target_info.GetBuildProp("ro.build.version.release")
   buildidn = target_info.GetBuildProp("ro.build.id")

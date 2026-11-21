@@ -211,44 +211,44 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     # Stage 3/3: Make changes.
     script.Comment("Stage 3/3")
 
-  # Dump fingerprints
+    # Dump fingerprints
   script.Print("Target: {}".format(target_info.fingerprint))
 
-  # Build info
-script.Print("------------------------------------------------------------")
-script.Print("  ██████  █████  ██████  ██████   ██████  ███    ██ ")
-script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ████   ██ ")
-script.Print(" ██      ███████ ██████  ██████  ██    ██ ██ ██  ██ ")
-script.Print(" ██      ██   ██ ██   ██ ██   ██ ██    ██ ██  ██ ██ ")
-script.Print("  ██████ ██   ██ ██   ██ ██████   ██████  ██   ████ ")
-script.Print("")
-script.Print("                 ██████  ███████")
-script.Print("                ██    ██ ██     ")
-script.Print("                ██    ██ ███████")
-script.Print("                ██    ██      ██")
-script.Print("                 ██████  ███████")
-script.Print("------------------------------------------------------------")
+  # CarbonOS banner
+  script.Print("----------------------------------------")
+  script.Print(" ####   ###   ####   ####    ###   #   #")
+  script.Print("#      #   #  #   #  #   #  #   #  ##  #")
+  script.Print("#      #####  ####   ####   #   #  # # #")
+  script.Print("#      #   #  #  #   #   #  #   #  #  ##")
+  script.Print(" ####  #   #  #   #  ####    ###   #   #")
+  script.Print("")
+  script.Print("               ###    ####")
+  script.Print("              #   #  #")
+  script.Print("              #   #   ###")
+  script.Print("              #   #      #")
+  script.Print("               ###   ####")
+  script.Print("----------------------------------------")
 
+  # Build info
   buildid = target_info.GetBuildProp("ro.carbon.version_display")
   androidver = target_info.GetBuildProp("ro.build.version.release")
-  buildidn = target_info.GetBuildProp("ro.build.id")
-  buildday = target_info.GetBuildProp("ro.build.date")
   securep = target_info.GetBuildProp("ro.build.version.security_patch")
+  buildday = target_info.GetBuildProp("ro.build.date")
   device = target_info.GetBuildProp("ro.product.name")
   manufacturer = target_info.GetBuildProp("ro.product.manufacturer")
   maintainer = target_info.GetBuildProp("ro.carbonos.maintainer")
-  script.Print("***********************************************");
-  script.Print(" ROM version      : %s"%(buildid));
-  script.Print(" Android version  : %s"%(androidver));
-  script.Print(" Security patch   : %s"%(securep));
-  script.Print(" Build date       : %s"%(buildday));
-  script.Print("***********************************************");
-  script.Print(" Device           : %s"%(device));
-  script.Print(" Manufacturer     : %s"%(manufacturer));
-  script.Print(" Maintainer       : %s"%(maintainer));
-  script.Print("***********************************************");
-  script.Print("                                         ");
-
+  script.Print("----------------------------------------")
+  script.Print(" ROM version     : %s" % buildid)
+  script.Print(" Android version : %s" % androidver)
+  script.Print(" Security patch  : %s" % securep)
+  script.Print(" Build date      : %s" % buildday)
+  script.Print("----------------------------------------")
+  script.Print(" Device          : %s" % device)
+  script.Print(" Manufacturer    : %s" % manufacturer)
+  script.Print(" Maintainer      : %s" % maintainer)
+  script.Print("----------------------------------------")
+  script.Print("")
+  
   device_specific.FullOTA_InstallBegin()
 
   CopyInstallTools(output_zip)
